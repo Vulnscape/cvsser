@@ -43,7 +43,7 @@ def main():
                 new[v][x["metric_code"]]["type"] = x["type"]
                 new[v][x["metric_code"]]["mandatory"] = x["mandatory"]
 
-    with open('../vs_cvss/cvss_guide.py', 'w') as f:
+    with open('../cvsser/cvss_guide.py', 'w') as f:
         f.write(f"""# -*- coding: utf-8 -*-\n\ncvss_guide = {json.dumps(new,indent=2).replace("true","True").replace("false","False")}""")
 
 if __name__ == "__main__":

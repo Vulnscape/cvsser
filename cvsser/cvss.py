@@ -45,7 +45,6 @@ class VectorString:
             else:
                 raise ValueError('String input has at least one duplicated metric.')
 
-        # dict([(k, r) for k, r in mydict.iteritems() if r['x'] > 92 and r['x'] < 95 and r['y'] > 70 and r['y'] < 75])
         v2_required_metrics = [k for k,v in self.guide["v2.0"].items() if v["mandatory"]]
         v2_all_metrics = list(self.guide["v2.0"])
         v3_required_metrics = [k for k,v in self.guide["v3.0"].items() if v["mandatory"]]
