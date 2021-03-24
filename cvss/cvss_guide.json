@@ -121,7 +121,7 @@
       "mandatory": false
     },
     "CR": {
-      "name": "Confidentiality Requirements",
+      "name": "Confidentiality Requirement",
       "values": {
         "L": "Low",
         "M": "Medium",
@@ -132,7 +132,7 @@
       "mandatory": false
     },
     "IR": {
-      "name": "Integrity Requirements",
+      "name": "Integrity Requirement",
       "values": {
         "L": "Low",
         "M": "Medium",
@@ -143,7 +143,7 @@
       "mandatory": false
     },
     "AR": {
-      "name": "Availability Requirements",
+      "name": "Availability Requirement",
       "values": {
         "L": "Low",
         "M": "Medium",
