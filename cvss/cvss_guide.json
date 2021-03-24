@@ -1,0 +1,625 @@
+{
+  "v2.0": {
+    "AV": {
+      "name": "Access Vector",
+      "values": {
+        "L": "Local",
+        "A": "Adjacent Network",
+        "N": "Network"
+      },
+      "type": "Base",
+      "mandatory": true
+    },
+    "AC": {
+      "name": "Access Complexity",
+      "values": {
+        "H": "High",
+        "M": "Medium",
+        "L": "Low"
+      },
+      "type": "Base",
+      "mandatory": true
+    },
+    "Au": {
+      "name": "Authentication",
+      "values": {
+        "M": "Multiple",
+        "S": "Single",
+        "N": "None"
+      },
+      "type": "Base",
+      "mandatory": true
+    },
+    "C": {
+      "name": "Confidentiality Impact",
+      "values": {
+        "N": "None",
+        "P": "Partial",
+        "C": "Complete"
+      },
+      "type": "Base",
+      "mandatory": true
+    },
+    "I": {
+      "name": "Integrity Impact",
+      "values": {
+        "N": "None",
+        "P": "Partial",
+        "C": "Complete"
+      },
+      "type": "Base",
+      "mandatory": true
+    },
+    "A": {
+      "name": "Availability Impact",
+      "values": {
+        "N": "None",
+        "P": "Partial",
+        "C": "Complete"
+      },
+      "type": "Base",
+      "mandatory": true
+    },
+    "E": {
+      "name": "Exploitability",
+      "values": {
+        "U": "Unproven",
+        "POC": "Proof-of-Concept",
+        "F": "Functional",
+        "H": "High",
+        "ND": "Not Defined"
+      },
+      "type": "Temporal",
+      "mandatory": false
+    },
+    "RL": {
+      "name": "Remediation Level",
+      "values": {
+        "OF": "Official Fix",
+        "TF": "Temporary Fix",
+        "W": "Workaround",
+        "U": "Unavailable",
+        "ND": "Not Defined"
+      },
+      "type": "Temporal",
+      "mandatory": false
+    },
+    "RC": {
+      "name": "Report Confidence",
+      "values": {
+        "UC": "Unconfirmed",
+        "UR": "Uncorroborated ",
+        "C": "Confirmed",
+        "ND": "Not Defined"
+      },
+      "type": "Temporal",
+      "mandatory": false
+    },
+    "CDP": {
+      "name": "Collateral Damage Potential",
+      "values": {
+        "N": "None",
+        "L": "Low",
+        "LM": "Low-Medium",
+        "MH": "Medium-High",
+        "H": "High",
+        "ND": "Not Defined"
+      },
+      "type": "Environmental",
+      "mandatory": false
+    },
+    "TD": {
+      "name": "Target Distribution",
+      "values": {
+        "N": "None",
+        "L": "Low",
+        "M": "Medium",
+        "H": "High",
+        "ND": "Not Defined"
+      },
+      "type": "Environmental",
+      "mandatory": false
+    },
+    "CR": {
+      "name": "Confidentiality Requirements",
+      "values": {
+        "L": "Low",
+        "M": "Medium",
+        "H": "High",
+        "ND": "Not Defined"
+      },
+      "type": "Environmental",
+      "mandatory": false
+    },
+    "IR": {
+      "name": "Integrity Requirements",
+      "values": {
+        "L": "Low",
+        "M": "Medium",
+        "H": "High",
+        "ND": "Not Defined"
+      },
+      "type": "Environmental",
+      "mandatory": false
+    },
+    "AR": {
+      "name": "Availability Requirements",
+      "values": {
+        "L": "Low",
+        "M": "Medium",
+        "H": "High",
+        "ND": "Not Defined"
+      },
+      "type": "Environmental",
+      "mandatory": false
+    }
+  },
+  "v3.0": {
+    "AV": {
+      "name": "Attack Vector",
+      "values": {
+        "N": "Network",
+        "A": "Adjacent",
+        "L": "Local",
+        "P": "Physical"
+      },
+      "type": "Base",
+      "mandatory": true
+    },
+    "AC": {
+      "name": "Attack Complexity",
+      "values": {
+        "L": "Low",
+        "H": "High"
+      },
+      "type": "Base",
+      "mandatory": true
+    },
+    "PR": {
+      "name": "Privileges Required",
+      "values": {
+        "N": "None",
+        "L": "Low",
+        "H": "High"
+      },
+      "type": "Base",
+      "mandatory": true
+    },
+    "UI": {
+      "name": "User Interaction",
+      "values": {
+        "N": "None",
+        "R": "Required"
+      },
+      "type": "Base",
+      "mandatory": true
+    },
+    "S": {
+      "name": "Scope",
+      "values": {
+        "U": "Unchanged",
+        "C": "Changed"
+      },
+      "type": "Base",
+      "mandatory": true
+    },
+    "C": {
+      "name": "Confidentiality Impact",
+      "values": {
+        "H": "High",
+        "L": "Low",
+        "N": "None"
+      },
+      "type": "Base",
+      "mandatory": true
+    },
+    "I": {
+      "name": "Integrity Impact",
+      "values": {
+        "H": "High",
+        "L": "Low",
+        "N": "None"
+      },
+      "type": "Base",
+      "mandatory": true
+    },
+    "A": {
+      "name": "Availability Impact",
+      "values": {
+        "H": "High",
+        "L": "Low",
+        "N": "None"
+      },
+      "type": "Base",
+      "mandatory": true
+    },
+    "E": {
+      "name": "Exploit Code Maturity",
+      "values": {
+        "X": "Not Defined",
+        "H": "High",
+        "F": "Functional",
+        "P": "Proof-of-Concept",
+        "U": "Unproven"
+      },
+      "type": "Temporal",
+      "mandatory": false
+    },
+    "RL": {
+      "name": "Remediation Level",
+      "values": {
+        "X": "Not Defined",
+        "U": "Unavailable",
+        "W": "Workaround",
+        "T": "Temporary Fix",
+        "O": "Official Fix"
+      },
+      "type": "Temporal",
+      "mandatory": false
+    },
+    "RC": {
+      "name": "Report Confidence",
+      "values": {
+        "X": "Not Defined",
+        "C": "Confirmed",
+        "R": "Reasonable",
+        "U": "Unknown"
+      },
+      "type": "Temporal",
+      "mandatory": false
+    },
+    "CR": {
+      "name": "Confidentiality Requirement",
+      "values": {
+        "X": "Not Defined",
+        "H": "High",
+        "M": "Medium",
+        "L": "Low"
+      },
+      "type": "Environmental",
+      "mandatory": false
+    },
+    "IR": {
+      "name": "Integrity Requirement",
+      "values": {
+        "X": "Not Defined",
+        "H": "High",
+        "M": "Medium",
+        "L": "Low"
+      },
+      "type": "Environmental",
+      "mandatory": false
+    },
+    "AR": {
+      "name": "Availability Requirement",
+      "values": {
+        "X": "Not Defined",
+        "H": "High",
+        "M": "Medium",
+        "L": "Low"
+      },
+      "type": "Environmental",
+      "mandatory": false
+    },
+    "MAV": {
+      "name": "Modified Attack Vector",
+      "values": {
+        "X": "Not Defined",
+        "N": "Network",
+        "A": "Adjacent",
+        "L": "Local",
+        "P": "Physical"
+      },
+      "type": "Environmental",
+      "mandatory": false
+    },
+    "MAC": {
+      "name": "Modified Attack Complexity",
+      "values": {
+        "X": "Not Defined",
+        "L": "Low",
+        "H": "High"
+      },
+      "type": "Environmental",
+      "mandatory": false
+    },
+    "MPR": {
+      "name": "Modified Privileges Required",
+      "values": {
+        "X": "Not Defined",
+        "N": "None",
+        "L": "Low",
+        "H": "High"
+      },
+      "type": "Environmental",
+      "mandatory": false
+    },
+    "MUI": {
+      "name": "Modified User Interaction",
+      "values": {
+        "X": "Not Defined",
+        "N": "None",
+        "R": "Required"
+      },
+      "type": "Environmental",
+      "mandatory": false
+    },
+    "MS": {
+      "name": "Modified Scope",
+      "values": {
+        "X": "Not Defined",
+        "U": "Unchanged",
+        "C": "Changed"
+      },
+      "type": "Environmental",
+      "mandatory": false
+    },
+    "MC": {
+      "name": "Modified Confidentiality",
+      "values": {
+        "X": "Not Defined",
+        "N": "None",
+        "L": "Low",
+        "H": "High"
+      },
+      "type": "Environmental",
+      "mandatory": false
+    },
+    "MI": {
+      "name": "Modified Integrity",
+      "values": {
+        "X": "Not Defined",
+        "N": "None",
+        "L": "Low",
+        "H": "High"
+      },
+      "type": "Environmental",
+      "mandatory": false
+    },
+    "MA": {
+      "name": "Modified Availability",
+      "values": {
+        "X": "Not Defined",
+        "N": "None",
+        "L": "Low",
+        "H": "High"
+      },
+      "type": "Environmental",
+      "mandatory": false
+    }
+  },
+  "v3.1": {
+    "AV": {
+      "name": "Attack Vector",
+      "values": {
+        "N": "Network",
+        "A": "Adjacent",
+        "L": "Local",
+        "P": "Physical"
+      },
+      "type": "Base",
+      "mandatory": true
+    },
+    "AC": {
+      "name": "Attack Complexity",
+      "values": {
+        "L": "Low",
+        "H": "High"
+      },
+      "type": "Base",
+      "mandatory": true
+    },
+    "PR": {
+      "name": "Privileges Required",
+      "values": {
+        "N": "None",
+        "L": "Low",
+        "H": "High"
+      },
+      "type": "Base",
+      "mandatory": true
+    },
+    "UI": {
+      "name": "User Interaction",
+      "values": {
+        "N": "None",
+        "R": "Required"
+      },
+      "type": "Base",
+      "mandatory": true
+    },
+    "S": {
+      "name": "Scope",
+      "values": {
+        "U": "Unchanged",
+        "C": "Changed"
+      },
+      "type": "Base",
+      "mandatory": true
+    },
+    "C": {
+      "name": "Confidentiality Impact",
+      "values": {
+        "H": "High",
+        "L": "Low",
+        "N": "None"
+      },
+      "type": "Base",
+      "mandatory": true
+    },
+    "I": {
+      "name": "Integrity Impact",
+      "values": {
+        "H": "High",
+        "L": "Low",
+        "N": "None"
+      },
+      "type": "Base",
+      "mandatory": true
+    },
+    "A": {
+      "name": "Availability Impact",
+      "values": {
+        "H": "High",
+        "L": "Low",
+        "N": "None"
+      },
+      "type": "Base",
+      "mandatory": true
+    },
+    "E": {
+      "name": "Exploit Code Maturity",
+      "values": {
+        "X": "Not Defined",
+        "H": "High",
+        "F": "Functional",
+        "P": "Proof-of-Concept",
+        "U": "Unproven"
+      },
+      "type": "Temporal",
+      "mandatory": false
+    },
+    "RL": {
+      "name": "Remediation Level",
+      "values": {
+        "X": "Not Defined",
+        "U": "Unavailable",
+        "W": "Workaround",
+        "T": "Temporary Fix",
+        "O": "Official Fix"
+      },
+      "type": "Temporal",
+      "mandatory": false
+    },
+    "RC": {
+      "name": "Report Confidence",
+      "values": {
+        "X": "Not Defined",
+        "C": "Confirmed",
+        "R": "Reasonable",
+        "U": "Unknown"
+      },
+      "type": "Temporal",
+      "mandatory": false
+    },
+    "CR": {
+      "name": "Confidentiality Requirement",
+      "values": {
+        "X": "Not Defined",
+        "H": "High",
+        "M": "Medium",
+        "L": "Low"
+      },
+      "type": "Environmental",
+      "mandatory": false
+    },
+    "IR": {
+      "name": "Integrity Requirement",
+      "values": {
+        "X": "Not Defined",
+        "H": "High",
+        "M": "Medium",
+        "L": "Low"
+      },
+      "type": "Environmental",
+      "mandatory": false
+    },
+    "AR": {
+      "name": "Availability Requirement",
+      "values": {
+        "X": "Not Defined",
+        "H": "High",
+        "M": "Medium",
+        "L": "Low"
+      },
+      "type": "Environmental",
+      "mandatory": false
+    },
+    "MAV": {
+      "name": "Modified Attack Vector",
+      "values": {
+        "X": "Not Defined",
+        "N": "Network",
+        "A": "Adjacent",
+        "L": "Local",
+        "P": "Physical"
+      },
+      "type": "Environmental",
+      "mandatory": false
+    },
+    "MAC": {
+      "name": "Modified Attack Complexity",
+      "values": {
+        "X": "Not Defined",
+        "L": "Low",
+        "H": "High"
+      },
+      "type": "Environmental",
+      "mandatory": false
+    },
+    "MPR": {
+      "name": "Modified Privileges Required",
+      "values": {
+        "X": "Not Defined",
+        "N": "None",
+        "L": "Low",
+        "H": "High"
+      },
+      "type": "Environmental",
+      "mandatory": false
+    },
+    "MUI": {
+      "name": "Modified User Interaction",
+      "values": {
+        "X": "Not Defined",
+        "N": "None",
+        "R": "Required"
+      },
+      "type": "Environmental",
+      "mandatory": false
+    },
+    "MS": {
+      "name": "Modified Scope",
+      "values": {
+        "X": "Not Defined",
+        "U": "Unchanged",
+        "C": "Changed"
+      },
+      "type": "Environmental",
+      "mandatory": false
+    },
+    "MC": {
+      "name": "Modified Confidentiality",
+      "values": {
+        "X": "Not Defined",
+        "N": "None",
+        "L": "Low",
+        "H": "High"
+      },
+      "type": "Environmental",
+      "mandatory": false
+    },
+    "MI": {
+      "name": "Modified Integrity",
+      "values": {
+        "X": "Not Defined",
+        "N": "None",
+        "L": "Low",
+        "H": "High"
+      },
+      "type": "Environmental",
+      "mandatory": false
+    },
+    "MA": {
+      "name": "Modified Availability",
+      "values": {
+        "X": "Not Defined",
+        "N": "None",
+        "L": "Low",
+        "H": "High"
+      },
+      "type": "Environmental",
+      "mandatory": false
+    }
+  }
+}
