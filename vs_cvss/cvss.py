@@ -1,12 +1,11 @@
 # -*- coding: utf-8 -*-
 
-import json
+from .cvss_guide import cvss_guide
 
 class VectorString:
-    def __init__(self, vector_string=None, guide=False):
-        with open('cvss_guide.json', 'r') as f:
-            self.guide = json.load(f)
-        if not guide:
+    def __init__(self, vector_string=None, guide_only=False):
+        self.guide = cvss_guide
+        if not guide_only:
             if not vector_string:
                 raise TypeError("No vector string input was provided.")
             if type(vector_string) != str:

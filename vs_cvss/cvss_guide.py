@@ -1,4 +1,6 @@
-{
+# -*- coding: utf-8 -*-
+
+cvss_guide = {
   "v2.0": {
     "AV": {
       "name": "Access Vector",
@@ -8,7 +10,7 @@
         "N": "Network"
       },
       "type": "Base",
-      "mandatory": true
+      "mandatory": True
     },
     "AC": {
       "name": "Access Complexity",
@@ -18,7 +20,7 @@
         "L": "Low"
       },
       "type": "Base",
-      "mandatory": true
+      "mandatory": True
     },
     "Au": {
       "name": "Authentication",
@@ -28,7 +30,7 @@
         "N": "None"
       },
       "type": "Base",
-      "mandatory": true
+      "mandatory": True
     },
     "C": {
       "name": "Confidentiality Impact",
@@ -38,7 +40,7 @@
         "C": "Complete"
       },
       "type": "Base",
-      "mandatory": true
+      "mandatory": True
     },
     "I": {
       "name": "Integrity Impact",
@@ -48,7 +50,7 @@
         "C": "Complete"
       },
       "type": "Base",
-      "mandatory": true
+      "mandatory": True
     },
     "A": {
       "name": "Availability Impact",
@@ -58,7 +60,7 @@
         "C": "Complete"
       },
       "type": "Base",
-      "mandatory": true
+      "mandatory": True
     },
     "E": {
       "name": "Exploitability",
@@ -70,7 +72,7 @@
         "ND": "Not Defined"
       },
       "type": "Temporal",
-      "mandatory": false
+      "mandatory": False
     },
     "RL": {
       "name": "Remediation Level",
@@ -82,7 +84,7 @@
         "ND": "Not Defined"
       },
       "type": "Temporal",
-      "mandatory": false
+      "mandatory": False
     },
     "RC": {
       "name": "Report Confidence",
@@ -93,7 +95,7 @@
         "ND": "Not Defined"
       },
       "type": "Temporal",
-      "mandatory": false
+      "mandatory": False
     },
     "CDP": {
       "name": "Collateral Damage Potential",
@@ -106,7 +108,7 @@
         "ND": "Not Defined"
       },
       "type": "Environmental",
-      "mandatory": false
+      "mandatory": False
     },
     "TD": {
       "name": "Target Distribution",
@@ -118,7 +120,7 @@
         "ND": "Not Defined"
       },
       "type": "Environmental",
-      "mandatory": false
+      "mandatory": False
     },
     "CR": {
       "name": "Confidentiality Requirement",
@@ -129,7 +131,7 @@
         "ND": "Not Defined"
       },
       "type": "Environmental",
-      "mandatory": false
+      "mandatory": False
     },
     "IR": {
       "name": "Integrity Requirement",
@@ -140,7 +142,7 @@
         "ND": "Not Defined"
       },
       "type": "Environmental",
-      "mandatory": false
+      "mandatory": False
     },
     "AR": {
       "name": "Availability Requirement",
@@ -151,7 +153,7 @@
         "ND": "Not Defined"
       },
       "type": "Environmental",
-      "mandatory": false
+      "mandatory": False
     }
   },
   "v3.0": {
@@ -164,7 +166,7 @@
         "P": "Physical"
       },
       "type": "Base",
-      "mandatory": true
+      "mandatory": True
     },
     "AC": {
       "name": "Attack Complexity",
@@ -173,7 +175,7 @@
         "H": "High"
       },
       "type": "Base",
-      "mandatory": true
+      "mandatory": True
     },
     "PR": {
       "name": "Privileges Required",
@@ -183,7 +185,7 @@
         "H": "High"
       },
       "type": "Base",
-      "mandatory": true
+      "mandatory": True
     },
     "UI": {
       "name": "User Interaction",
@@ -192,7 +194,7 @@
         "R": "Required"
       },
       "type": "Base",
-      "mandatory": true
+      "mandatory": True
     },
     "S": {
       "name": "Scope",
@@ -201,7 +203,7 @@
         "C": "Changed"
       },
       "type": "Base",
-      "mandatory": true
+      "mandatory": True
     },
     "C": {
       "name": "Confidentiality Impact",
@@ -211,7 +213,7 @@
         "N": "None"
       },
       "type": "Base",
-      "mandatory": true
+      "mandatory": True
     },
     "I": {
       "name": "Integrity Impact",
@@ -221,7 +223,7 @@
         "N": "None"
       },
       "type": "Base",
-      "mandatory": true
+      "mandatory": True
     },
     "A": {
       "name": "Availability Impact",
@@ -231,7 +233,7 @@
         "N": "None"
       },
       "type": "Base",
-      "mandatory": true
+      "mandatory": True
     },
     "E": {
       "name": "Exploit Code Maturity",
@@ -243,7 +245,7 @@
         "U": "Unproven"
       },
       "type": "Temporal",
-      "mandatory": false
+      "mandatory": False
     },
     "RL": {
       "name": "Remediation Level",
@@ -255,7 +257,7 @@
         "O": "Official Fix"
       },
       "type": "Temporal",
-      "mandatory": false
+      "mandatory": False
     },
     "RC": {
       "name": "Report Confidence",
@@ -266,7 +268,7 @@
         "U": "Unknown"
       },
       "type": "Temporal",
-      "mandatory": false
+      "mandatory": False
     },
     "CR": {
       "name": "Confidentiality Requirement",
@@ -277,7 +279,7 @@
         "L": "Low"
       },
       "type": "Environmental",
-      "mandatory": false
+      "mandatory": False
     },
     "IR": {
       "name": "Integrity Requirement",
@@ -288,7 +290,7 @@
         "L": "Low"
       },
       "type": "Environmental",
-      "mandatory": false
+      "mandatory": False
     },
     "AR": {
       "name": "Availability Requirement",
@@ -299,7 +301,7 @@
         "L": "Low"
       },
       "type": "Environmental",
-      "mandatory": false
+      "mandatory": False
     },
     "MAV": {
       "name": "Modified Attack Vector",
@@ -311,7 +313,7 @@
         "P": "Physical"
       },
       "type": "Environmental",
-      "mandatory": false
+      "mandatory": False
     },
     "MAC": {
       "name": "Modified Attack Complexity",
@@ -321,7 +323,7 @@
         "H": "High"
       },
       "type": "Environmental",
-      "mandatory": false
+      "mandatory": False
     },
     "MPR": {
       "name": "Modified Privileges Required",
@@ -332,7 +334,7 @@
         "H": "High"
       },
       "type": "Environmental",
-      "mandatory": false
+      "mandatory": False
     },
     "MUI": {
       "name": "Modified User Interaction",
@@ -342,7 +344,7 @@
         "R": "Required"
       },
       "type": "Environmental",
-      "mandatory": false
+      "mandatory": False
     },
     "MS": {
       "name": "Modified Scope",
@@ -352,7 +354,7 @@
         "C": "Changed"
       },
       "type": "Environmental",
-      "mandatory": false
+      "mandatory": False
     },
     "MC": {
       "name": "Modified Confidentiality",
@@ -363,7 +365,7 @@
         "H": "High"
       },
       "type": "Environmental",
-      "mandatory": false
+      "mandatory": False
     },
     "MI": {
       "name": "Modified Integrity",
@@ -374,7 +376,7 @@
         "H": "High"
       },
       "type": "Environmental",
-      "mandatory": false
+      "mandatory": False
     },
     "MA": {
       "name": "Modified Availability",
@@ -385,7 +387,7 @@
         "H": "High"
       },
       "type": "Environmental",
-      "mandatory": false
+      "mandatory": False
     }
   },
   "v3.1": {
@@ -398,7 +400,7 @@
         "P": "Physical"
       },
       "type": "Base",
-      "mandatory": true
+      "mandatory": True
     },
     "AC": {
       "name": "Attack Complexity",
@@ -407,7 +409,7 @@
         "H": "High"
       },
       "type": "Base",
-      "mandatory": true
+      "mandatory": True
     },
     "PR": {
       "name": "Privileges Required",
@@ -417,7 +419,7 @@
         "H": "High"
       },
       "type": "Base",
-      "mandatory": true
+      "mandatory": True
     },
     "UI": {
       "name": "User Interaction",
@@ -426,7 +428,7 @@
         "R": "Required"
       },
       "type": "Base",
-      "mandatory": true
+      "mandatory": True
     },
     "S": {
       "name": "Scope",
@@ -435,7 +437,7 @@
         "C": "Changed"
       },
       "type": "Base",
-      "mandatory": true
+      "mandatory": True
     },
     "C": {
       "name": "Confidentiality Impact",
@@ -445,7 +447,7 @@
         "N": "None"
       },
       "type": "Base",
-      "mandatory": true
+      "mandatory": True
     },
     "I": {
       "name": "Integrity Impact",
@@ -455,7 +457,7 @@
         "N": "None"
       },
       "type": "Base",
-      "mandatory": true
+      "mandatory": True
     },
     "A": {
       "name": "Availability Impact",
@@ -465,7 +467,7 @@
         "N": "None"
       },
       "type": "Base",
-      "mandatory": true
+      "mandatory": True
     },
     "E": {
       "name": "Exploit Code Maturity",
@@ -477,7 +479,7 @@
         "U": "Unproven"
       },
       "type": "Temporal",
-      "mandatory": false
+      "mandatory": False
     },
     "RL": {
       "name": "Remediation Level",
@@ -489,7 +491,7 @@
         "O": "Official Fix"
       },
       "type": "Temporal",
-      "mandatory": false
+      "mandatory": False
     },
     "RC": {
       "name": "Report Confidence",
@@ -500,7 +502,7 @@
         "U": "Unknown"
       },
       "type": "Temporal",
-      "mandatory": false
+      "mandatory": False
     },
     "CR": {
       "name": "Confidentiality Requirement",
@@ -511,7 +513,7 @@
         "L": "Low"
       },
       "type": "Environmental",
-      "mandatory": false
+      "mandatory": False
     },
     "IR": {
       "name": "Integrity Requirement",
@@ -522,7 +524,7 @@
         "L": "Low"
       },
       "type": "Environmental",
-      "mandatory": false
+      "mandatory": False
     },
     "AR": {
       "name": "Availability Requirement",
@@ -533,7 +535,7 @@
         "L": "Low"
       },
       "type": "Environmental",
-      "mandatory": false
+      "mandatory": False
     },
     "MAV": {
       "name": "Modified Attack Vector",
@@ -545,7 +547,7 @@
         "P": "Physical"
       },
       "type": "Environmental",
-      "mandatory": false
+      "mandatory": False
     },
     "MAC": {
       "name": "Modified Attack Complexity",
@@ -555,7 +557,7 @@
         "H": "High"
       },
       "type": "Environmental",
-      "mandatory": false
+      "mandatory": False
     },
     "MPR": {
       "name": "Modified Privileges Required",
@@ -566,7 +568,7 @@
         "H": "High"
       },
       "type": "Environmental",
-      "mandatory": false
+      "mandatory": False
     },
     "MUI": {
       "name": "Modified User Interaction",
@@ -576,7 +578,7 @@
         "R": "Required"
       },
       "type": "Environmental",
-      "mandatory": false
+      "mandatory": False
     },
     "MS": {
       "name": "Modified Scope",
@@ -586,7 +588,7 @@
         "C": "Changed"
       },
       "type": "Environmental",
-      "mandatory": false
+      "mandatory": False
     },
     "MC": {
       "name": "Modified Confidentiality",
@@ -597,7 +599,7 @@
         "H": "High"
       },
       "type": "Environmental",
-      "mandatory": false
+      "mandatory": False
     },
     "MI": {
       "name": "Modified Integrity",
@@ -608,7 +610,7 @@
         "H": "High"
       },
       "type": "Environmental",
-      "mandatory": false
+      "mandatory": False
     },
     "MA": {
       "name": "Modified Availability",
@@ -619,7 +621,7 @@
         "H": "High"
       },
       "type": "Environmental",
-      "mandatory": false
+      "mandatory": False
     }
   }
 }

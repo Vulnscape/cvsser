@@ -5,12 +5,12 @@ Guide Generator
 ~~~~~~~~~~~~~~~~~~~~~
 The 'Guide Generator' interprets the contents of the cvss_metadata.csv document,
 which outlines the structure, naming conventions, and acceptable values for the various
-versions of CVSS vector strings. It generates a cvss_guide.json document which is used
-as a source document by the core pycvss library during runtime.
+versions of CVSS vector strings. It generates a cvss_guide.py document which is used
+as a source document by the core VS_CVSS library during runtime.
 
-The 'Guide Generator' is merely a convenience for developers of the pycvss module, allowing
-CVSS version metadata updates to be more easily maintained. Typical users of the pycvss
-library can ignore the contents of the 'tools' directory.
+The 'Guide Generator' is merely a convenience for developers of the VS_CVSS module, allowing
+CVSS version metadata updates to be more easily maintained. Typical users of the VS_CVSS
+module can ignore the contents of the 'tools' directory.
 
 For more on the CVSS specification and CVSS vector strings:
 https://www.first.org/cvss/v2/guide
@@ -43,8 +43,8 @@ def main():
                 new[v][x["metric_code"]]["type"] = x["type"]
                 new[v][x["metric_code"]]["mandatory"] = x["mandatory"]
 
-    with open('..\cvss\cvss_guide.json', 'w') as f:
-        f.write(json.dumps(new,indent=2))
+    with open('../vs_cvss/cvss_guide.py', 'w') as f:
+        f.write(f"""# -*- coding: utf-8 -*-\n\ncvss_guide = {json.dumps(new,indent=2).replace("true","True").replace("false","False")}""")
 
 if __name__ == "__main__":
     main()
