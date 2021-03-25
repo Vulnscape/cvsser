@@ -4,6 +4,7 @@
 ```
 >>> import cvsser
 >>> import json
+>>> test = "CVSS:3.0/AV:L/AC:H/PR:N/UI:R/S:U/C:H/I:H/A:H/E:U/RL:O/RC:C"
 >>> vs = cvsser.VectorString(test)
 >>> print(vs.privileges_required)
 N
