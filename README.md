@@ -1,5 +1,4 @@
 # cvsser
-
 **cvsser** is a simple library for interpreting CVSS vector strings and converting their metrics into ready-to-publish formats.
 
 ```
@@ -33,4 +32,11 @@ N
   "Modified Integrity (MI)": "Not Defined (X)",
   "Modified Availability (MA)": "Not Defined (X)"
 }
+```
+
+## Installing cvsser
+cvsser is available on PyPI:
+
+```console
+$ python -m pip install cvsser
 ```
