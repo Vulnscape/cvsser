@@ -196,7 +196,9 @@ class VectorString:
                                 val = v["values"][self.metrics.get(k,"X")]
                             elif self.version in ["v2.0"]:
                                 val = v["values"][self.metrics.get(k, "ND")]
-                        response[name] = val
+                        response[k] = {}
+                        response[k]["metric"] = name
+                        response[k]["value"] = val
                 elif include == 'all':
                     if parentheticals == "both":
                         name = f"""{v["name"]} ({k})"""
@@ -222,5 +224,7 @@ class VectorString:
                             val = v["values"][self.metrics.get(k,"X")]
                         elif self.version in ["v2.0"]:
                             val = v["values"][self.metrics.get(k, "ND")]
-                response[name] = val
+                    response[k] = {}
+                    response[k]["metric"] = name
+                    response[k]["value"] = val
         return response
