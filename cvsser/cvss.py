@@ -78,153 +78,61 @@ class VectorString:
         self.metrics = temp_di
         self.version = prov_version
 
-        if self.version == "v2.0":
-            self.av = self.metrics.get("AV")
-            self.access_vector = self.metrics.get("AV")
-            self.ac = self.metrics.get("AC")
-            self.access_complexity = self.metrics.get("AC")
-            self.au = self.metrics.get("Au")
-            self.authentication = self.metrics.get("Au")
-            self.c = self.metrics.get("C")
-            self.confidentiality_impact = self.metrics.get("C")
-            self.i = self.metrics.get("I")
-            self.integrity_impact = self.metrics.get("I")
-            self.a = self.metrics.get("A")
-            self.availability_impact = self.metrics.get("A")
-            self.e = self.metrics.get("E", "ND")
-            self.exploitability = self.metrics.get("E","ND")
-            self.rl = self.metrics.get("RL", "ND")
-            self.remediation_level = self.metrics.get("RL", "ND")
-            self.rc = self.metrics.get("RC", "ND")
-            self.report_confidence = self.metrics.get("RC", "ND")
-            self.cdp = self.metrics.get("CDP", "ND")
-            self.collateral_damage_potential = self.metrics.get("CDP", "ND")
-            self.td = self.metrics.get("TD", "ND")
-            self.target_distribution = self.metrics.get("TD", "ND")
-            self.cr = self.metrics.get("CR", "ND")
-            self.confidentiality_requirement = self.metrics.get("CR", "ND")
-            self.ir = self.metrics.get("IR", "ND")
-            self.integrity_requirement = self.metrics.get("IR", "ND")
-            self.ar = self.metrics.get("AR", "ND")
-            self.availability_requirement = self.metrics.get("AR", "ND")
-
-        if self.version in ["v3.0", "v3.1"]:
-            self.av = self.metrics.get("AV")
-            self.attack_vector = self.metrics.get("AV")
-            self.ac = self.metrics.get("AC")
-            self.attack_complexity = self.metrics.get("AC")
-            self.pr = self.metrics.get("PR")
-            self.privileges_required = self.metrics.get("PR")
-            self.ui = self.metrics.get("UI")
-            self.user_interaction = self.metrics.get("UI")
-            self.s = self.metrics.get("S")
-            self.scope = self.metrics.get("S")
-            self.c = self.metrics.get("C")
-            self.confidentiality = self.metrics.get("C")
-            self.confidentiality_impact = self.metrics.get("C")
-            self.i = self.metrics.get("I")
-            self.integrity = self.metrics.get("I")
-            self.integrity_impact = self.metrics.get("I")
-            self.a = self.metrics.get("A")
-            self.availability = self.metrics.get("A")
-            self.availability_impact = self.metrics.get("A")
-            self.e = self.metrics.get("E", "X")
-            self.exploit_code_maturity = self.metrics.get("E", "X")
-            self.rl = self.metrics.get("RL", "X")
-            self.remediation_level = self.metrics.get("RL", "X")
-            self.rc = self.metrics.get("RC", "X")
-            self.report_confidence = self.metrics.get("RC", "X")
-            self.cr = self.metrics.get("CR", "X")
-            self.confidentiality_requirement = self.metrics.get("CR", "X")
-            self.ir = self.metrics.get("IR", "X")
-            self.integrity_requirement = self.metrics.get("IR", "X")
-            self.ar = self.metrics.get("AR", "X")
-            self.availability_requirement = self.metrics.get("AR", "X")
-            self.mav = self.metrics.get("MAV", "X")
-            self.modified_attack_vector = self.metrics.get("MAV", "X")
-            self.mac = self.metrics.get("MAC", "X")
-            self.modified_attack_complexity = self.metrics.get("MAC", "X")
-            self.mpr = self.metrics.get("MPR", "X")
-            self.modified_privileges_required = self.metrics.get("MPR", "X")
-            self.mui = self.metrics.get("MUI", "X")
-            self.modified_user_interaction = self.metrics.get("MUI", "X")
-            self.ms = self.metrics.get("MS", "X")
-            self.modified_scope = self.metrics.get("MS", "X")
-            self.mc = self.metrics.get("MC", "X")
-            self.modified_confidentiality = self.metrics.get("MC", "X")
-            self.modified_confidentiality_impact = self.metrics.get("MC", "X")
-            self.mi = self.metrics.get("MI", "X")
-            self.modified_integrity = self.metrics.get("MI", "X")
-            self.modified_integrity_impact = self.metrics.get("MI", "X")
-            self.ma = self.metrics.get("MA", "X")
-            self.modified_availability = self.metrics.get("MA", "X")
-            self.modified_availability_impact = self.metrics.get("MA", "X")
+        # Assign instance attributes based upon metrics captured in the vector string
+        for k,v in self.guide[self.version].items():
+            code = k.lower()
+            full_name = "_".join(v["name"].split(' ')).lower()
+            if self.version == "v2.0":
+                setattr(self, code, self.metrics.get(k, "ND"))
+                setattr(self, full_name, self.metrics.get(k, "ND"))
+            if self.version in ["v3.0", "v3.1"]:
+                setattr(self, code, self.metrics.get(k, "X"))
+                setattr(self, full_name, self.metrics.get(k, "X"))
 
     def to_dict(self, style='default', parentheticals='none', include='all'):
+        if style not in ["default","verbose"]:
+            raise ValueError("Invalid value for 'style' parameter. Valid values are ['default', 'verbose'].")
+        if parentheticals not in ["both", "metrics", "values", "none"]:
+            raise ValueError("Invalid value for 'parentheticals' parameter. Valid values are ['none', 'metrics', 'values', 'both'].")
+        if include not in ["all", "mandatory", "base"]:
+            raise ValueError("Invalid value for 'include' parameter. Valid values are ['all', 'mandatory', 'base'].")
+        if style == 'default' and parentheticals != "none":
+            raise AttributeError("The 'parentheticals' attribute is only compatible with the 'verbose' style.")
+
         if style == 'default':
-            if parentheticals != "none":
-                raise AttributeError("""The 'parentheticals' attribute is only compatible with the 'verbose' style.""")
             response = {}
-            for c in self.guide[self.version]:
-                response[c] = self.metrics.get(c,"X")
+            for k,v in self.guide[self.version].items():
+                name = k
+                val = getattr(self,k.lower())
+                response[k] = {}
+                response[k]["metric"] = name
+                response[k]["value"] = val
+
         elif style == 'verbose':
             response = {}
             for k,v in self.guide[self.version].items():
-                if include == 'mandatory' or include == 'base':
-                    if v["type"] == "Base":
-                        if parentheticals == "both":
-                            name = f"""{v["name"]} ({k})"""
-                            if self.version in ["v3.0", "v3.1"]:
-                                val = f"""{v["values"][self.metrics.get(k,"X")]} ({self.metrics.get(k,"X")})"""
-                            elif self.version in ["v2.0"]:
-                                val = f"""{v["values"][self.metrics.get(k, "ND")]} ({self.metrics.get(k, "ND")})"""
-                        elif parentheticals == "metrics":
-                            name = f"""{v["name"]} ({k})"""
-                            if self.version in ["v3.0", "v3.1"]:
-                                val = v["values"][self.metrics.get(k,"X")]
-                            elif self.version in ["v2.0"]:
-                                val = v["values"][self.metrics.get(k, "ND")]
-                        elif parentheticals == "values":
-                            name = v["name"]
-                            if self.version in ["v3.0", "v3.1"]:
-                                val = f"""{v["values"][self.metrics.get(k,"X")]} ({self.metrics.get(k,"X")})"""
-                            if self.version in ["v2.0"]:
-                                val = f"""{v["values"][self.metrics.get(k, "ND")]} ({self.metrics.get(k, "ND")})"""
-                        elif parentheticals == "none":
-                            name = v["name"]
-                            if self.version in ["v3.0", "v3.1"]:
-                                val = v["values"][self.metrics.get(k,"X")]
-                            elif self.version in ["v2.0"]:
-                                val = v["values"][self.metrics.get(k, "ND")]
-                        response[k] = {}
-                        response[k]["metric"] = name
-                        response[k]["value"] = val
-                elif include == 'all':
-                    if parentheticals == "both":
-                        name = f"""{v["name"]} ({k})"""
-                        if self.version in ["v3.0", "v3.1"]:
-                            val = f"""{v["values"][self.metrics.get(k,"X")]} ({self.metrics.get(k,"X")})"""
-                        elif self.version in ["v2.0"]:
-                            val = f"""{v["values"][self.metrics.get(k, "ND")]} ({self.metrics.get(k, "ND")})"""
-                    elif parentheticals == "metrics":
-                        name = f"""{v["name"]} ({k})"""
-                        if self.version in ["v3.0", "v3.1"]:
-                            val = v["values"][self.metrics.get(k,"X")]
-                        elif self.version in ["v2.0"]:
-                            val = v["values"][self.metrics.get(k, "ND")]
-                    elif parentheticals == "values":
-                        name = v["name"]
-                        if self.version in ["v3.0", "v3.1"]:
-                            val = f"""{v["values"][self.metrics.get(k,"X")]} ({self.metrics.get(k,"X")})"""
-                        if self.version in ["v2.0"]:
-                            val = f"""{v["values"][self.metrics.get(k, "ND")]} ({self.metrics.get(k, "ND")})"""
-                    elif parentheticals == "none":
-                        name = v["name"]
-                        if self.version in ["v3.0", "v3.1"]:
-                            val = v["values"][self.metrics.get(k,"X")]
-                        elif self.version in ["v2.0"]:
-                            val = v["values"][self.metrics.get(k, "ND")]
-                    response[k] = {}
-                    response[k]["metric"] = name
-                    response[k]["value"] = val
-        return response
+                if parentheticals == "both":
+                    name = f"""{v["name"]} ({k})"""
+                    val = f"""{v["values"][getattr(self,k.lower())]} ({getattr(self,k.lower())})"""
+                elif parentheticals == "metrics":
+                    name = f"""{v["name"]} ({k})"""
+                    val = f"""{v["values"][getattr(self, k.lower())]}"""
+                elif parentheticals == "values":
+                    name = v["name"]
+                    val = f"""{v["values"][getattr(self, k.lower())]} ({getattr(self, k.lower())})"""
+                elif parentheticals == "none":
+                    name = v["name"]
+                    val = f"""{v["values"][getattr(self, k.lower())]}"""
+                response[k] = {}
+                response[k]["metric"] = name
+                response[k]["value"] = val
+
+        if include == 'all':
+            return response
+        # If only base/mandatory metric types are required, remove the optional metrics
+        elif include in ['mandatory', 'base']:
+            mod_response = {}
+            for k,v in response.items():
+                if self.guide[self.version][k]["type"] == "Base":
+                    mod_response[k] = v
+            return mod_response
